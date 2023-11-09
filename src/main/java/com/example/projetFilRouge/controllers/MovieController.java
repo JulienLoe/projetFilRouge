@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-//@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "*")
     @RestController
     @RequestMapping("/api")
     @RequiredArgsConstructor
@@ -50,22 +50,22 @@ import java.util.List;
             }
         }
 
-        @GetMapping("/movie")
-        public ResponseEntity<List<Movie>> getAllMovie(@RequestParam(required = false) String title) {
-            try {
-                List<Movie> movies = new ArrayList<>();
-
-                requestRepository.findAllCast().forEach(movies::add);
-
-                if (movies.isEmpty()) {
-                    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-                }
-
-                return new ResponseEntity<>(movies, HttpStatus.OK);
-            } catch (Exception e) {
-                return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-        }
+//        @GetMapping("/movie")
+//        public ResponseEntity<List<Movie>> getAllMovie(@RequestParam(required = false) String title) {
+//            try {
+//                List<Movie> movies = new ArrayList<>();
+//
+//                requestRepository.findAllCast().forEach(movies::add);
+//
+//                if (movies.isEmpty()) {
+//                    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//                }
+//
+//                return new ResponseEntity<>(movies, HttpStatus.OK);
+//            } catch (Exception e) {
+//                return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+//            }
+//        }
 
         @GetMapping("/cast")
         public ResponseEntity<List<Cast>> getAllCast(@RequestParam(required = false) String title) {
@@ -135,22 +135,22 @@ import java.util.List;
             }
         }
 
-        @GetMapping("/category")
-        public ResponseEntity<List<Category>> getAllMovie(@RequestParam(required = false) String title) {
-            try {
-                List<Category> categories = new ArrayList<>();
-
-                requestRepository.findAllCast().forEach(categories::add);
-
-                if (categories.isEmpty()) {
-                    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-                }
-
-                return new ResponseEntity<>(categories, HttpStatus.OK);
-            } catch (Exception e) {
-                return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-        }
+//        @GetMapping("/category")
+//        public ResponseEntity<List<Category>> getAllMovie(@RequestParam(required = false) String title) {
+//            try {
+//                List<Category> categories = new ArrayList<>();
+//
+//                requestRepository.findAllCast().forEach(categories::add);
+//
+//                if (categories.isEmpty()) {
+//                    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//                }
+//
+//                return new ResponseEntity<>(categories, HttpStatus.OK);
+//            } catch (Exception e) {
+//                return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+//            }
+//        }
 
         @GetMapping("/movies/{number}")
         public void getAllMovies(@PathVariable("number") int number) throws IOException, InterruptedException {

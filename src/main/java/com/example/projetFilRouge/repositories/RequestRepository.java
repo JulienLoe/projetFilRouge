@@ -52,9 +52,9 @@ public class RequestRepository {
         return jdbcTemplate.query(q, BeanPropertyRowMapper.newInstance(Season.class));
     }
 
-    public List<Category> findAllCategory() {
-        String q = "SELECT * from category";
-        return jdbcTemplate.query(q, BeanPropertyRowMapper.newInstance(Category.class));
-    }
+//    public List<Category> findAllCategory() {
+//        String q = "SELECT * from category";
+//        return jdbcTemplate.query(q, BeanPropertyRowMapper.newInstance(Category.class));
+//    }
 
 }

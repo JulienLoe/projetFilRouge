@@ -3,13 +3,11 @@ package com.example.projetFilRouge.controllers;
 import com.example.projetFilRouge.helper.MovieHelper;
 import com.example.projetFilRouge.helper.SerieHelper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/v1/Upload")
 @RequiredArgsConstructor
