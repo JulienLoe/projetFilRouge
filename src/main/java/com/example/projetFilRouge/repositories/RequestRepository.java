@@ -1,5 +1,6 @@
 package com.example.projetFilRouge.repositories;
 
+import com.example.projetFilRouge.entities.*;
 import com.example.projetFilRouge.models.Tutorial;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -21,13 +22,39 @@ public class RequestRepository {
 //    }
 
 
-    public List<Tutorial> findByTitleContaining(String title) {
-//        String q = "SELECT * from tutorials t join credits c on c.credits_id_csv = t.movie_id WHERE title ILIKE '%" + title + "%' OR genres ILIKE '%" + title + "%' OR crew ILIKE '%" + title + "%' ";
-
-        String q = "SELECT * from tutorials WHERE title ILIKE '%" + title + "%'";
-
-//        String q = "SELECT * from tutorials t join credits c on c.credits_id_csv = t.movie_id WHERE title ILIKE '%" + title + "%' OR genres ILIKE '%" + title + "%' OR crew ILIKE '%" + title + "%' ";
-        return jdbcTemplate.query(q, BeanPropertyRowMapper.newInstance(Tutorial.class));
+    public List<Movie> findByTitleContaining(String title) {
+        String q = "SELECT * from movie WHERE title ILIKE '%" + title + "%'";
+        return jdbcTemplate.query(q, BeanPropertyRowMapper.newInstance(Movie.class));
     }
-//    select distinct t.title  , c.crew from tutorials t join credits c on c.credits_id_csv = t.movie_id  WHERE title = 'Braveheart'
+
+    public List<Movie> findAllMovies() {
+        String q = "SELECT * from movie";
+        return jdbcTemplate.query(q, BeanPropertyRowMapper.newInstance(Movie.class));
+    }
+
+    public List<Cast> findAllCast() {
+        String q = "SELECT * from cast";
+        return jdbcTemplate.query(q, BeanPropertyRowMapper.newInstance(Cast.class));
+    }
+
+    public List<Episode> findAllEpisode() {
+        String q = "SELECT * from episode";
+        return jdbcTemplate.query(q, BeanPropertyRowMapper.newInstance(Episode.class));
+    }
+
+    public List<Serie> findAllSerie() {
+        String q = "SELECT * from serie";
+        return jdbcTemplate.query(q, BeanPropertyRowMapper.newInstance(Serie.class));
+    }
+
+    public List<Season> findAllSeason() {
+        String q = "SELECT * from seasons";
+        return jdbcTemplate.query(q, BeanPropertyRowMapper.newInstance(Season.class));
+    }
+
+    public List<Category> findAllCategory() {
+        String q = "SELECT * from category";
+        return jdbcTemplate.query(q, BeanPropertyRowMapper.newInstance(Category.class));
+    }
+
 }
